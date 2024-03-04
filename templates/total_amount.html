@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Total Transaction Amount</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            h1 {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        {% comment %} <h1>total Transaction amount: Ksh.{{total_amount.total_amount}}</h1> {% endcomment %}
+        <h1>maximum Transaction amount: Ksh.{{maximum_amount.maximum_amount}}</h1>
+        {% comment %} <h1>minimum Transaction amount: Ksh.{{minimum_amount.minimum_amount}}</h1>
+        <h1>average Transaction amount: Ksh.{{average_amount.average_amount}}</h1>{% endcomment %}
+        <h1>total posts: {{total_posts.total_posts}}</h1> 
+        
+        <script src="" async defer></script>
+    </body>
+</html>

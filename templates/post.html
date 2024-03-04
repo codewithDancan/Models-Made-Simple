@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Spotify - Stream Music</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div>
+            <h1>Top Songs</h1>
+            <hr>
+                {% for post in posts reversed %}
+                <div>
+                    <h2>{{ post.title }}</h2>
+                    <br>
+                    <p>Artist: {{ post.artist_name}}</p>
+                    <br>
+                </div>
+                {% comment %} display the cover files  {% endcomment %}
+                <div>
+                    <img src='{{ post.song_cover.url }}'>
+                    <br>
+                </div>
+
+                {% comment %} display mp3 files  {% endcomment %}
+                <audio controls>
+                    <source src={{ post.mp3_file.url }} type='audio/mp3'>
+                </audio>
+                <br>
+                <p>Created: {{ post.created }}</p>
+                {% endfor %}
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
