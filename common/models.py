@@ -9,7 +9,7 @@ class MyModel(models.Model):
     boolean = models.BooleanField(default = True, verbose_name='This a Boolean')
     char = models.CharField(verbose_name = 'Full name: ', max_length=255, unique=True, 
                             help_text='use your original names', default='Dancan Ngaga')
-    date = models.DateTimeField(default=timezone.now())
+    date = models.DateTimeField(auto_now_add=True)
     decimal = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
     email = models.EmailField(max_length=300, default='abc@gmail.com')
     file = models.FileField(upload_to='uploads', blank=True,

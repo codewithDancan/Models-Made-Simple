@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'aggregate.apps.AggregateConfig',
     'common.apps.CommonConfig',
     'spotify',
+    'generator.apps.GeneratorConfig',
+
+    # external apps 
+    'django_extensions',
 
 ]
 
@@ -58,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'modelsmadesimple.urls'
+ROOT_URLCONF = 'database_modelling.urls'
 
 TEMPLATES = [
     {
@@ -76,17 +80,32 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'modelsmadesimple.wsgi.application'
+WSGI_APPLICATION = 'database_modelling.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# mySQL
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'django',  
+        'USER': 'root',  
+        'PASSWORD': '1091',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }  
+    }  
 }
 
 
@@ -135,3 +154,30 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # serve media files 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+    'pydot': {
+        'format': 'png',
+        'options': ['-Tpng'],
+    }
+}
+
+
+# ensure Werkzeug can log to the console
+# LOGGING = {
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'werkzeug': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
+# }
